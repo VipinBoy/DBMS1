@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mysql</title>
+    <link rel="stylesheet" href="mysql_style.css">
+</head>
+<body>
+    <div  id="home">
+        <h1>CONTENT</h1>
+        <ul>
+            <li><a href="#ddl">DATA DEFINATION LANGUAGE(DDL)</a></li>
+            <li><a href="#dml">DATA MANIPULATION LANGUAGE(DML)</a></li>
+            <li><a href="#tcl">TRANSACTION CONTROL LANGUAGE(TCL)</a></li>
+            <li><a href="#dql">DATA QUERY LANGUAGE(DQL)</a></li>
+            <li><a href="#like">PATTERN MATCHING(LIKE OPERATOR)</a></li>
+            <li><a href="#grp">AGGREGATE FUNCTIONS/GROUP FUNCTIONS</a></li>
+            <li><a href="#condi">CONDITIONAL RETRIEVAL OF ROWS</a></li>
+            <li><a href="#view">VIEWS</a></li>
+            <li><a href="#cons">CONSTRAINTS</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h1 id="ddl">DATA DEFINATION LANGUAGE(DDL)</h1>
+        <p>DDL stands for Data defination language. It is the subset of SQL commands used to create, modify and destroy databases and database objects like tables, views etc.</p>
+        <h2>Creating tables</h2>
+        <p>The create command is used to crate tables to store data. The columns name in the table must be unique. Columns names can be duplicated across tables</p>
+        <p>Syntax  :- create table table_name{ column_name1 datatype, column_name2 datatype .... column_nameN datatype};</p>
+        <p>Example :- create table student_record{ name varchar2(20), class varchar2(10), roll_no number(5), section varchar(1),marks number(5,2)};</p>
+        <a href="Images/create.png"><img src="Images/create.png" alt="sorry"></a>
+        <h2>Truncating a table</h2>
+        <p>The truncate command statement is used to delete all rows from a table and to release the storage space used by that table</p>
+        <p>Synatx :- truncate table table_name;</p>
+        <p>Example :- truncate table emp;</p>
+        <a href="Images/droptruncate.png"><img src="Images/droptruncate.png" alt="sorry"></a>
+        <h2>Alter</h2>
+        <p>Alter statement is used to modify the defination or structure of a table by modifying definition of its columns.</p>
+        <p>Add, modify and drop table columns</p>
+        <h2>Add a column using alter</h2>
+        <p>Syntax to add a column  :- alter table table_name add column_name datatype;</p>
+        <p>Example to add a column :- alter table emp add experience number(2);</p>
+        <a href="Images/alteradd.png"><img src="Images/alteradd.png" alt="sorry"></a>
+        <h2>Drop a column using alter</h2>
+        <p>Syntax to drop a column :- alter table table_name drop column column_name;</p>
+        <p>Example to add a column :- alter table emp drop column experience;</p>
+        <a href="Images/alterdrop.png"><img src="Images/alterdrop.png" alt="sorry"></a>
+        <h2>Modify a column using alter</h2>
+        <p>Syntax to modify a column  :- alter table table_name modify column_name datatype;</p>
+        <p>Example to modify a column :- alter table emp modify experience number(3);</p>
+        <a href="Images/altermodify.png"><img src="Images/altermodify.png" alt="sorry"></a>
+        <h2>Drop table</h2>
+        <p>drop statement removes the defination of a table</p>
+        <p>Syntax  :- drop table table_name;</p>
+        <p>Example :- drop table emp;</p>
+        <a href="Images/droptruncate.png"><img src="Images/droptruncate.png" alt="sorry"></a>
+        <section>
+		 <button><a href="index.html">BACK</a></button>
+            <button><a href="#home">TOP</a></button>
+        </section>
+    </div>
+
+    <div>
+        <h1 id="dml">DATA MANIPULATION LANGUAGE(DML)</h1>
+        <p>DML stands for Data manipulation language. it is database language, which enables user to manipulation datain the database.</p>
+        <h2>Inserting values into a table</h2>
+        <p>Insert statement is used to insert new row or records into a table. Values can be inserted for all the columns or for the selected columns of the table.</p>
+        <p>Syntax  :- insert into table_name values(value1, value2, value3, .... valueN);</p>
+        <p>Example :- insert into emp values(2736, 'prince');</p>
+        <a href="Images/insert.png"><img src="Images/insert.png" alt="sorry"></a>
+        <h2>Deleting row from a table</h2>
+        <p>Delete statement is used to delete rows from a table </p>
+        <p>Syntax  :- delete from table_name[where condition];</p>
+        <p>Example :- delete from emp where job ='clerk';</p>
+        <a href="Images/delete.png"><img src="Images/delete.png" alt="sorry"></a>
+
+        <h2>Update columns of a table</h2>
+        <p>Update statement is used to update or modify the existing rows in a table.</p>
+        <p>Syntax  :- update table_name set column_name1 = value1, column_name2 = value2 ... [where condition];</p>
+        <p>Example :- update emp set comm = 1000 where comm is NULL;</p>
+        <a href="Images/update.png"><img src="Images/update.png" alt="sorry"></a>
+        <section>
+            <button><a href="index.html">BACK</a></button>
+            <button><a href="#home">TOP</a></button>
+        </section>
+    </div>
+    <div>
+        <h1 id="tcl">TRANSACTION CONTROL LANGUAGE(TCL)</h1>
+        <h2>Commit and Rollback</h2>
+        <p>The commit statement is used to make changes to data (inserts, updates, deltes) permanent to the database.</p>
+        <P>The rollback statement is used to discard parts in case an error is detected during the DML operation</P>
+        <a href="Images/rollback.png"><img src="Images/rollback.png" alt="sorry"></a>
+        <section>
+            <button><a href="index.html">BACK</a></button>
+            <button><a href="#home">TOP</a></button>
+        </section>
+    </div>
+    <div>
+        <h1 id="dql">DATA QUERY LANGUAGE(DQL)</h1>
+        <h2>Select statement</h2> 
+        <p>Select statement is used to retrieve data from a table in the database. A query may retrieve information from specified columns of from all of the columns in the table.</p>
+        <p>Syntax  :- select column_name from table_name [where clause] [group by clause] [having clause] [order by clause];</p>
+        <p>Example :- select ename form emp;</p>
+        <a href="Images/commit.png"><img src="Images/commit.png" alt="sorry"></a>
+        <section>
+            <button><a href="index.html">BACK</a></button>
+            <button><a href="#home">TOP</a></button>
+        </section>
+    </div>
+   <div>
+    <h1 id="like">Like Operator</h1>
+    <p>Like operator is used to when we want to compare the pattern of the string.</p>
+         <p>LIKE Operator is used to perform the pattern matching task in SQL.</p>
+              <p>A WHERE clause is generally preceded by a LIKE clause in an SQL query.</p>
+                   <p>LIKE operator searches for a match between the patterns in a query with the pattern in the values present in an SQL table. If the match is successful, then that particular value will be retrieved from the SQL table.</p><br>
+    <h2><li>Syntax of like operator</li></h2>
+         <p><b>Mysql> </b>SELECT ColumnName1, ColumnName2 FROM TableName WHERE ColumnName LIKE [Expression];  </p><br>
+   <h2>The pattern is matched using two operator with like operator </h2>
+        <p>1. Underscore (_)  operator<br>
+                2. Percentage (%) operator</p><br>
+   <p><b>1. Underscore (_) : </b>The underscore character ( _ ) represents a single character to match a pattern from a word or string. More than one ( _ ) underscore characters can be used to match a pattern of multiple characters.</p>
+   <h2><li>Example of Underscore(_) operator </li></h2>
+       <h3><a href="Images/like.png"><img src="Images/like.png"></a></h3><br><br>
+   <p><b>2. percentage (%) : </b>The percentage sign (%) represents zero, one, or multiple characterspattern matching enables you to use  % to match an arbitrary number of characters (including zero characters). In MySQL, SQL patterns are case-insensitive by default.</p>
+   <h2><li>Example of Percentage(%) operator </li></h2>
+       <a href="Images/like.png"><img src="Images/like.png"></a><br><br><br><br>
+       <section>
+        <button><a href="index.html">BACK</a></button>
+        <button><a href="#home">TOP</a></button>
+    </section>
+   </div>
+   <hr>
+    <div>
+        <h1 id="grp">AGGREGATE FUNCTIONS/GROUP FUNCTIONS</h1>
+        <h2>Types of Aggregate functions :- </h2>
+        <h2>(i) count()</h2>
+        <h2>(ii) sum()</h2>
+        <h2>(iii) max()</h2>
+        <h2>(iv) min()</h2>
+        <h2>(v) avg()</h2>
+        <p>Example :- select count(*) as total_employee from emp where deptno=10;</p>
+        <p>Example :- select sum(sal) as total_salary from emp;</p>
+        <p>Example :- select max(sal) as max_salary from emp;</p>
+        <p>Example :- select min(sal) as min_salary from emp;</p>
+        <p>Example :- select avg(sal) as avg_salary from emp;</p>
+        <a href="Images/count.png"><img src="Images/count.png" alt="sorry"></a>
+        <a href="Images/sum.png"><img src="Images/sum.png" alt="sorry"></a>
+        <a href="Images/max_min_avg.png"><img src="Images/max_min_avg.png" alt="sorry"></a>
+        
+        <section>
+            <button><a href="index.html">BACK</a></button>
+            <button><a href="#home">TOP</a></button>
+        </section>
+    </div>
+    <hr>
+<div>
+    <h1 id="condi">Conditional retrieval of rows</h1>
+    <H2>Where clause</H2>
+    <p>Conditional retrieval of rows from a database table is done by specifying the condition in the WHERE clause of the SELECT statement.</p>
+    <p>Syntax :- Select column_name from table_name where condition;</p>
+    <p>Example :- Select ename from emp where deptno = 20;</p>
+    <a href="Images/where.png"><img src="Images/where.png" alt="sorry"></a>
+
+    <h2>Order by clause</h2>
+    <p>The order by clause to impose an order on the result of a query either in ascending or descending order.</p>
+    <p>Syntax  :- Select column_name from table_name [where condition] [order by column1, column2, columnN] [asc|desc];</p>
+    <p>Example :-select ename, sal from emp order by sal;</p>
+    <a href="Images/oderby.png"><img src="Images/oderby.png" alt="sorry"></a> 
+
+    <h2>Group by clause</h2>
+    <p>The group by clause is used with select statement to combine a group of rows based on the values of a particular column or expression.</p>
+    <p>Syntax  :- Select column_name, group_function (column) from table_name [where condition] [group by group_by_expression] [order by column] ;</p>
+    <p>Example :-Select deptno, sum(sal) as total_salary from emp group by deptno;</p>
+    <a href="Images/groupby.png"><img src="Images/groupby.png" alt="sorry"></a>
+
+    <h2>Having by clause</h2>
+    <p>This is similar to where condition but is used with group functions. Group functions cannot be used in WHERE clause but can be used in HAVING clause.</p>
+    <p>Syntax  :- Select column_name, group_function (column) from table_name [where condition] [group by group_by_expression] [having having expression] [order by column] ;</p>
+    <p>Example :-Select deptno, sum(sal) as total_salary from emp group by deptno having sum(sal)>1000;</p>
+    <a href="Images/having.png"><img src="Images/having.png" alt="sorry"></a>
+    <section>
+        <button><a href="index.html">BACK</a></button>
+        <button><a href="#home">TOP</a></button>
+    </section>
+</div>
+<hr>
+<div>
+<h1 id="view">VIEWS</h1>
+<h2>Introduction to views</h2>
+<p>Views is a virtual table, through which a selective portion of the data from one or more tables cal be seen. A view contains no data of its own but it is like a window through which data from tables can be viewed of changed. The tables on which a view is based are called base tables. Base tables might in turn be actual tables or might ne views themselves. All operations performed ona view actually effect the base table of the view. DML operations on a view like INSERT, UPDATE, DELETE affects the data in the original table upon which the view is based. you can use views in almost the same way as tables. </p>
+<p>Syntax  :- create view view_name as select column1, column2 from table_name [where conditon];</p>
+<p>Example :- create view v1 as select *from emp where deptno = 20;</p>
+<a href="Images/view1.png"><img src="Images/view1.png" alt="sorry"></a>
+<a href="Images/view2.png"><img src="Images/view2.png" alt="sorry"></a>
+<a href="Images/view3.png"><img src="Images/view3.png" alt="sorry"></a>
+<section>
+    <button><a href="index.html">BACK</a></button>
+    <button><a href="#home">TOP</a></button>
+</section>
+</div>
+<hr>
+<div>
+    <h1 id="cons">Constrains</h1>
+    <p>constraints is a technique through which we can restrict a paricular column or multiple columns of a table</p>
+    <p>constraints are of two types</p>
+    <p>i. table level constraints</p>
+    <p>ii. column level constraints</p>
+    <h2>Primary key constraints</h2>
+    <p>when we define a primary key thn those column or columns will be unique and cannot have a null with it</p>
+    <p>Syntax  :- create table table_name(col_name datatype primary key, col_nameN datatype);</p>
+    <p>Example :- create table student (rollno int constraints pk_roll primary key);</p>
+    <a href="Images/constraint.png"><img src="Images/constraint.png" alt="sorry"></a>
+    <h2>Foreign key constraints</h2>
+    <p>foreign key constraints is known as referential integrity constraints</p>
+    <p>It maintains the intergrity of the data by checking the reference of the data from the primary key table</p>
+    <p>create table student_attendance(roll int foreign key references student_record(rollno), rdate date foregin key references student_active_date(rdate status text);</p>
+    <a href="Images/primary key constraint create1.png"><img src="Images/primary key constraint create1.png" alt="sorry"></a>
+    <a href="Images/foreign key constraints.png"><img src="Images/foreign key constraints.png" alt="sorry"></a>
+    <section>
+        <button><a href="index.html">BACK</a></button>
+        <button><a href="#home">TOP</a></button>
+    </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,275 @@
+*
+{
+    margin: 0;
+    padding: 0; 
+	font-family:arial;
+}
+html
+{
+    scroll-behavior: smooth;
+}
+.navbar{
+    display: flex;
+    position: sticky;
+    top: 0;
+    height: 100px;
+    
+}
+.nav-list
+{
+    display: flex;
+    align-items: center;
+    width: 70%;
+}
+.nav-list img
+{
+    width: 80px;
+    margin: 5px 60px;
+    cursor: pointer;
+    border:3px solid black;
+    border-radius: 100%;
+}
+.nav-list li
+{
+    list-style: none;
+}
+.nav-list li a
+{
+    padding: 5px 20px;
+    margin: 10px 40px;
+    text-decoration: none;
+    color: white;
+    font-size: 2.5rem;
+    border: 3px solid transparent;
+    border-radius: 50px;
+}
+.nav-list li :hover
+{
+    border:3px solid white;
+}
+.rightNav
+{
+    display: flex;
+    align-items: center;
+    justify-content: right;
+
+    width: 30%;
+}
+.rightNav input
+{
+    width: 300px;
+    height: 35px;
+    border-radius: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    border:none;
+    padding: 10px;
+    
+}
+
+.rightNav button
+{
+    background-color:transparent;
+    width: 80px;
+    height: 30px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    border: outset;
+    margin-right: 40px;
+    
+
+}
+.rightNav button:hover
+{
+ border: inset;
+}
+
+.background
+{
+    background: rgba(0, 0, 0, 0.7) url('Images/homesql1.jpg');
+    background-size: cover;
+    background-blend-mode: darken;
+}
+.box-main
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 65%;
+    height: 100vh;
+    margin: auto;
+
+}
+
+.firstHalf
+{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.secondHalf
+{
+    width: 30%;
+}
+.secondHalf img
+{
+    border: 4px solid black;
+    border-radius: 100%;
+    display: block;
+    margin: auto;
+}
+
+.paragraph1
+{
+    font-size: 3rem;
+    margin: 10px 0px;
+}
+.paragraph2
+{
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+.btn
+{
+    padding: 8px 20px;
+    margin:0px 10px;
+    border: 3px solid white;
+    background: none;
+    border-radius:10px;
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+    border: inset;
+}
+.btn:hover
+{
+    border: outset;
+
+}
+.set
+{
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 80%;
+    margin: auto;
+   
+}
+.left
+{
+    flex-direction: row-reverse;
+}
+.paras
+{
+ padding: 0 65px;
+}
+.sectionTag
+{
+    font-size: 3rem;
+    padding: 20px 0px;
+    font-family: serif;
+}
+.sectionSubTag
+{
+    font-size: 1.2rem;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.thumbnail img
+{
+    border :4px solid black;
+    border-radius: 30px;
+    margin-top: 30px;
+}
+.thumbnail img:hover
+{
+    border :4px solid black;
+    border-radius: 200px;
+    margin-top: 40px;
+}
+
+.contact
+{
+    height: 733px;
+    color: white;
+}
+.text-advance
+{
+    text-align: center;
+    font-size: 2.5rem;
+    padding-top: 30px;
+}
+/* .form
+{
+  max-width: 600px;
+  margin: 20px auto;
+
+}
+.form input
+{
+    width: 100%;
+    font-size: 19px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 7px  10px;
+    margin: 14px 0px;
+    border: none;
+}
+.form textarea
+{
+    width: 100%;
+    font-size: 19px;
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 7px  10px;
+    margin: 14px 0px;
+    border: none;
+}
+.form .btn{
+ margin: 20px 245px;
+ padding: 7px 30px;
+ font-size: 1.5rem;
+ border: 3px solid outset;
+}
+.form .btn:hover{
+ margin: 20px 245px;
+ padding: 7px 30px;
+ font-size: 1.5rem;
+ border: 3px solid white;
+} */
+footer
+{
+    padding: 7px 0px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    color: white;
+}
+ .text-footer
+ {
+     font-size: 1.4rem;
+     text-align: center;
+     display: block;
+
+ }
+
+.line
+{
+    width: 30px;
+    background-color: white;
+    height: 3px;
+    margin: 5px 3px ;
+}
+.text-footer a
+{
+    color: white;
+    text-decoration: none;   
+}
+.text-footer a:hover
+{
+    
+    text-decoration:underline;   
+}

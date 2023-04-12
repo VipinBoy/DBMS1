@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plsql</title>
+    <link rel="stylesheet" href="mysql_style.css">
+</head>
+<body>
+    
+        <div id="home">
+            <h1>CONTENT</h1>
+            <ul>
+                <li><a href="#intro">Introduction to PL/SQL</a></li>
+                <li><a href="#block">PL/SQL Block structure</a></li>
+                <li><a href="#var"> Variable & Constant</a></li>
+                <li><a href="#dcs">Decision control structure</a></li>
+                <li><a href="#loop">Loop /Iterative Control</a></li>
+                <li><a href="#cur">Cursor</a></li>
+                <li><a href="#impcur">Implicit /Explicit Cursor Attributes</a></li>
+                <li><a href="#pro">Procedure</a></li>
+                <li><a href="#fum">Function</a></li>
+                <li><a href="#arg">Argument Modes</a></li>
+                <li><a href="#pack">Package</a></li>
+            </ul>
+        </div>
+    <hr>
+    <div>
+        <h1 id="intro">Introduction to PL/SQL</h1>
+        <p>PL/SQL stands for procedural language; structured query language is known to be a block structured language. This was developed by Oracle corporation in the year 1980s. It is the Oracle corporation’s extension for SQL and also the relational database. This is also available in Oracle Database since version 7 which stores procedures, functions, packages, triggers. Times Ten in-memory database since the version 11.2.1 and also IBM DB 2 since the version 9.7. it is said that the Oracle corporation usually uses PL/SQL functionality with the different successive releases of each oracle database.
+
+            The PL/SQL language also includes procedural language elements like conditions and loops. PL/SQL allows declarations of constants and also variables of those types and also triggers. It can handle exceptions that are run time errors.</p>
+        <a href="Images/plsql.png"><img src="Images/plsql.png" alt="sorry"></a>
+        <section>
+            <button><a href="index.html">BACK</a></button>
+            <button><a href="#home">TOP</a></button>
+        </section>
+    </div>
+    <hr>
+    <div>
+        <h1 id="block">PL/SQL Block structure</h1>
+        <p>PL/SQL is a block-structured language. This means that programs can be divided into logical blocks.
+            A PL/SQL block consists of up to three sections : </p>
+            <p>(i) Declarative
+                </p>
+                <p>(ii) Executable
+                    </p>
+                    <p>(iii) Exception Handling</p>
+                    <a href="Images/blockstructured1.png"><img src="Images/blockstructured1.png" alt="sorry"></a>
+                    <a href="Images/block-structure.png"><img src="Images/block-structure.png" alt="sorry"></a>
+                    <p><b>(i) Declarative : </b>This is the first section of the PL/SQL blocks. This section is an optional part. This is the section in which the declaration of variables, cursors, exceptions, subprograms, pragma instructions and collections that are needed in the block will be declared. Below are few more characteristics of this part.</p>
+                
+                    <li>This particular section is optional and can be skipped if no declarations are needed.</li>
+                    <li>This should be the first section in a PL/SQL block, if present.</li>
+                    <li>This section starts with the keyword ‘DECLARE’ for triggers and anonymous block. For other subprograms, this keyword will not be present. Instead, the part after the subprogram name definition marks the declaration section</li>
+                    <li>This section should always be followed by execution section.</li><br>
+                
+                    <p><b>(ii)  Executable :  </b>Execution part is the main and mandatory part which actually executes the code that is written inside it. Since the PL/SQL expects the executable statements from this block this cannot be an empty block, i.e., it should have at least one valid executable code line in it. Below are few more characteristics of this part.</p>
+                
+                    <li>This can contain both PL/SQL code and SQL code.</li>
+                    <li>This can contain one or many blocks inside it as a nested block.</li>
+                    <li>This section starts with the keyword ‘BEGIN’.</li>
+                    <li>This section should be followed either by ‘END’ or Exception-Handling section (if present)</li><br>
+                
+                
+                    <p><b>(iii) Exception Handling : </b>The exception is unavoidable in the program which occurs at run-time and to handle this Oracle has provided an Exception-handling section in blocks. This section can also contain PL/SQL statements. This is an optional section of the PL/SQL blocks.</p>
+                
+                    <li>This is the section where the exception raised in the execution block is handled.</li>
+                    <li>This section is the last part of the PL/SQL block.</li>
+                    <li>Control from this section can never return to the execution block.</li>
+                    <li>This section starts with the keyword ‘EXCEPTION’.</li>
+                    <li>This section should always be followed by the keyword ‘END’.</li><br><br><br><br>
+                    <section>
+                        <button><a href="index.html">BACK</a></button>
+                        <button><a href="#home">TOP</a></button>
+                    </section>
+    </div>
+    <hr>
+    <div>
+        <br>
+      
+
+    <h1 id="var"> Variable</h1>
+
+    <p>PL/SQL variables must be declared in the declaration section or in a package as a global variable. When you declare a variable, PL/SQL allocates memory for the variable's value and the storage location is identified by the variable name.</p>
+    
+    <p><b1>Variable Declaration in PL/SQL : </b1><br><br>
+       PL/SQL variable must be declared in the declaration section of PL/SQL block. when you declare a variable, PL/SQL allocates memory for the variable's value and the storage location is identified by the variable name.</p><br>
+
+    <li>The syntax for declaring a variable </li>
+    <p>variable_name datatype [NOT NULL := value];</p><br>
+
+    <p><b>variable_name </b> is the name of the variable.</p>
+    <p><b>datatype </b> is a valid PL/SQL datatype.</p>
+    <p><b>NOT NULL </b> is an optional specification on the variable.</p>
+    <p><b>value </b>or default value is also an optionalk specification, where you can intialize a variable.</p>
+    <p>Each variable declaration is a separate statement and must be terminated by a semicolon.</p><br>
+
+    <li>The Example for declaring a variable </li>
+    <p>declare <br>
+        salary number(6);  <br>
+        deptname varchar2(20) := 'HR department'; <br>
+        begin <br>
+        dbms_output.put_line('Deptname : ' || deptname); <br>
+        end;</p><br>
+    <a href="Images/variavle11.png"><img src="Images/variavle11.png"></a><br><br><br>
+
+    <h1> Constant</h1>
+    <p>A constant is a value used in a PL/SQL block that remains unchanged throughout the program. It is a user-defined literal value. It can be declared and used instead of actual values.</p>
+    <p>Suppose, you have to write a program which will increase the salary of the employees upto 30%, you can declare a constant and use it throughout the program. Next time if you want to increase the salary again you can change the value of constant than the actual value throughout the program.</p><br>
+
+    <li>The Syntax for declare a constant</li>
+    <p>constant_name CONSTANT datatype := VALUE; </p><br>
+
+    <p><b>Constant_name: </b>it is the name of constant just like variable name. </p>
+    <p><b>CONSTANT : </b>The constant word is a reserved word and its value does not change.</p>
+    <p><b>VALUE: </b>it is a value which is assigned to a constant when it is declared. It can not be assigned later.</p><br>
+
+    <li>The Example for declaring a Constant </li>
+    <p>declare  <br>
+        deptno number :=30; <br> 
+        pin_code Constant number(6) :=160101; <br> 
+        begin  <br>
+        dbms_output.put_line('deptno : ' || deptno);  <br>
+        dbms_output.put_line('Pincode : ' || pin_code);  <br>
+        end;</p><br>
+    <a href="Images/constant11.png"><img src="Images/constant11.png"></a>
+    <section>
+        <button><a href="index.html">BACK</a></button>
+        <button><a href="#home">TOP</a></button>
+    </section><br><br><br><br><br>
+
+    </div>
+    <hr>
+    <div>
+        <h1 id="dcs">Decision control structure</h1>
+
+    <p>The structure of the PL/SQL IF Statement is similar to the structure of IF Statement in other Procedural Language. It allows PL/SQL to perfrom actions selectively based on conditions.<br><br>
+    <b>There are three forms of IF Statement : </b><br>
+    (i) IF- THEN Statement<br>
+    (ii) IF- THEN- ELSE Statement<br>
+    (iii) IF- THEN- ELSIF Statement</p><br>
+
+    <p><b1>(i) IF- THEN Statement : </b1>if then statement if then statement is the most simple decision-making statement. It is used to decide whether a certain statement or block of statements will be executed or not i.e if a certain condition is true then a block of statement is executed otherwise not.</p>
+
+    <li>The Syntax of IF- THEN Statement </li>
+    <p>IF condition THEN  <br> 
+        statement;  <br>
+        END IF; </p><br>
+
+    <li>The Example of IF- THEN Statement </li>
+    <p>declare <br>
+        a number;  <br>
+        b number;   <br>
+        begin      <br>
+        a := 10;  <br>
+        b := 5;   <br>
+        if a>b then  <br>
+        dbms_output.put_line('A is greater than B'); <br>
+        end if;  <br>
+        end;</p><br>
+    <a href="Images/if1.png"><img src="Images/if1.png"></a> <br><br><br>
+    
+    <p><b1> (ii) IF- THEN- ELSE Statement : </b1>The if statement alone tells us that if a condition is true it will execute a block of statements and if the condition is false it won’t. Here comes the else statement. We can use the else statement with if statement to execute a block of code when the condition is false.</p>
+
+    <li>The Syntax of IF- THEN- ELSE Statement </li>
+    <p>IF condition THEN <br>
+       statement; <br>
+       ELSE <br>
+       Statement; <br>
+       END IF;</p>  <br>
+
+       <li>The Example of IF- THEN- ELSE Statement </li>
+       <p>declare <br>    
+        age number;  <br>  
+        begin     <br>
+        select age into age from student where rollno=4;  <br> 
+        if age>18 then    <br>
+        dbms_output.put_line(age ||' Eligible to vote');   <br> 
+        else   <br>
+        dbms_output.put_line(age ||' not Eligible to vote');  <br>     
+        end if;  <br>  
+        end;</p>
+        <h2><a href="Images/student table1.png"><img src="Images/student table1.png"></a></h2><br>
+       <img src="Images/ifelse1.png">  <br><br><br>
+
+       <p><b1>(iii) IF- THEN- ELSIF Statement : </b1>The IF-THEN-ELSIF statement allows you to choose between several alternatives. An IF-THEN statement can be followed by an optional ELSIF...ELSE statement. The ELSIF clause lets you add additional conditions.</p>
+
+       <li>The Syntax of IF- THEN- ELSIF Statement </li>
+       <p>IF condition THEN <br>
+          statement; <br>
+          ELSIF condition THEN <br>
+          statement; <br>
+          ELSE <br>
+          statement;
+          END IF;</p>  <br>
+
+          <li>The Example of IF- THEN- ELSIF Statement </li>
+          <p>Declare <br> 
+            age number; <br> 
+            Begin <br>
+            if ( a = 10 ) THEN  <br>
+               dbms_output.put_line('Value of a is 10' );  <br>
+               ELSIF ( a = 20 ) THEN  <br>
+                  dbms_output.put_line('Value of a is 20' );  <br>
+               ELSIF ( a = 30 ) THEN  <br>
+                  dbms_output.put_line('Value of a is 30' );  <br>
+               ELSE  <br>
+                   dbms_output.put_line('None of the values is matching');  <br>
+               END IF;  <br>
+               dbms_output.put_line('Exact value of a is: '|| a );  <br> 
+            END; </p><br>
+           
+          <a href="Images/ifelseif1.png"><img src="Images/ifelseif1.png"></a>
+          <section>
+            <button><a href="index.html">BACK</a></button>
+            <button><a href="#home">TOP</a></button>
+        </section><br><br><br><br><br>
+    </div>
+    <hr>
+    <div>
+        <h1 id="loop">Loop /Iterative Control</h1>
+
+    <p>Iterative control statement or loop control structure are used when we want to repeat the execution of one or more statement for specified number of times.          <br><br>
+    <b>PL/SQL provides the following types of loops : </b>   <br>
+    (i) Basic loop / simple loop<br>
+    (ii) WHILE loop<br>
+    (iii)FOR loop</p><br>
+
+    <p><b1>(i) simple loop : </b1>The simplest loop statement is the basic (or infinite) loop, which encloses a squence of statement between the keywords LOOP and END LOOP. A basic loop allows execution of its statement at least once, even if the condition is already met upon entering the loop. without the EXIT statement, the loop would be infinite or endless. <br><br>
+    <b>The EXIT Statement : </b> you can use the EXIT statement to terminate a loop, control passes to the next statement after the END LOOP statement. The EXIT statement must be placed inside a loop. you can also attach a WHEN clause to allows conditional termination of the loop.</p>
+
+    <li>The Syntax of  simple loop </li>
+    <p> LOOP  <br> 
+        statement; <br>
+         ..... <br>
+        EXIT [WHEN condition]; <br>
+        END LOOP; </p>
+
+    <li>The Example of simple loop </li>              <br><br>
+    <h2><a href="Images/basicloop1.png"><img src="Images/basicloop1.png"></a>
+  <a href="Images/basicloopout1.png">  <img src="Images/basicloopout1.png">  </a></h2>              <br><br><br>
+    
+    <p><b1> (ii) WHILE loop : </b1>you can use the WHILE loop to repeat a squence of statement until the controlling condition is TRUE. The condition is evaluatedat the start of each iteraction. The loop terminates when the condition is FALSE. If the condition is FALSE at the start of the loop, then no further iteraction are performed.</p>
+
+    <li>The Syntax of WHILE loop </li>
+    <p>WHILE condition                               <br>
+        loop                                          <br>
+       statement1;                                   <br>
+       statement2;                                    <br>
+       ......                                        <br>
+       END loop;</p>                                 <br>
+
+       <li>The Example of  WHILE loop</li>               <br><br>
+      <h2><a href="Images/while loop1.png"><img src="Images/while loop1.png"></a>               
+       <a href="Images/whileloopoutput1.png"><img src="Images/whileloopoutput1.png"> </h2> </a>                <br><br><br>
+
+       <p><b1>(iii) FOR loop : </b1>For loop have the same gerneral structure as the basic loop. In addition, they have a control statement before the LOOP keyword to determine the number of iteraction that PL/SQL performs.</p>
+
+       <li>The Syntax of FOR loop </li>
+       <p>FOR variable_name in start..end               <br>
+          loop                                          <br>
+          statement1;                                    <br>
+          statement2;                                    <br>
+          ......                                          <br>
+          END loop,</p>                                  <br>
+
+          <li>The Example of FOR loop </li>                 <br><br>
+          <a href="Images/forloop.png"><img src="Images/forloop.png">  </a>      
+          <section>
+            <button><a href="index.html">BACK</a></button>
+            <button><a href="#home">TOP</a></button>
+        </section>        <br><br><br><br><br>
+    </div>
+    <hr>
+    <div>
+        <h1 id="cur">Cursor</h1>
+    
+    <p>When an SQL statement is processed, Oracle creates a memory area known as context area. A cursor is a pointer to this context area. It contains all information needed for processing the statement. In PL/SQL, the context area is controlled by Cursor. A cursor contains information on a select statement and the rows of data accessed by it.</p>
+
+    <a href="Images/cursor.png"><img src="Images/cursor.png"></a> <br><br>
+
+    <p>A cursor is used to referred to a program to fetch and process the rows returned by the SQL statement, one at a time. There are two types of cursors: <br>
+     (i) Implicit Cursors <br>
+    (ii) Explicit Cursors</p>  <br>
+
+    
+    <h2><a href="Images/curso1.png"><img src="Images/curso1.png"></a> </h2><br>
+
+
+
+    <p><b>(i) Implicit Cursors : </b>The implicit cursors are automatically generated by Oracle while an SQL statement is executed, if you don't use an explicit cursor for the statement.  <br>
+    These are created by default to process the statements when DML statements like INSERT, UPDATE, DELETE etc. are executed.</p>
+
+    <p><b>(ii) Explicit Cursors : </b>The Explicit cursors are defined by the programmers to gain more control over the context area. These cursors should be defined in the declaration section of the PL/SQL block. It is created on a SELECT statement which returns more than one row.</p><br><br>
+    <section>
+        <button><a href="index.html">BACK</a></button>
+        <button><a href="#home">TOP</a></button>
+    </section>
+    </div>
+    <hr>
+    <div>
+        <h1 id="impcur">Implicit /Explicit Cursor Attributes</h1><br>
+
+    <p><b>They are various Attributes used in the cursor : </b></p>
+
+   <p><b1>(i) %FOUND : </b1>Its return value is TRUE if DML statements like INSERT, DELETE and UPDATE affect at least one row or more rows or a SELECT INTO statement returned one or more rows. Otherwise it returns FALSE.</p>
+
+   <p><b1>(ii) %NOTFOUND : </b1>Its return value is TRUE if DML statements like INSERT, DELETE and UPDATE affect no row, or a SELECT INTO statement return no rows. Otherwise it returns FALSE. It is a just opposite of %FOUND.</p>
+
+   <p><b1>(iii) %ROWCOUNT : </b1>It returns the number of rows affected by DML statements like INSERT, DELETE, and UPDATE or returned by a SELECT INTO statement.</p>
+
+   <p><b1>(iv) %ISOPEN : </b1>It always returns FALSE for implicit cursors, because the SQL cursor is automatically closed after executing its associated SQL statements.</p><br>
+
+   
+   <h1>Implicit Cursors</h1>
+   <p>The implicit cursors are automatically generated by Oracle while an SQL statement is executed, if you don't use an explicit cursor for the statement.  <br>
+    These are created by default to process the statements when DML statements like INSERT, UPDATE, DELETE etc. are executed.</p>
+
+    <li>The Example of Implicit Cursors</li><br><br>
+    <a href="Images/implict.png"><img src="Images/implict.png"></a><br><br><br>
+
+
+<h1>Explicit Cursors</h1>
+<p>The Explicit cursors are defined by the programmers to gain more control over the context area. These cursors should be defined in the declaration section of the PL/SQL block. It is created on a SELECT statement which returns more than one row.</p><br>
+
+<b>Steps for Explicit Cursors : </b>
+<p>1. Declare  <br>
+   2. open   <br>
+   3. fetch  <br>
+   4. close </p>
+
+<p><b1>1. Declare : </b1>It defines the cursor with a name and the associated SELECT statement.   <br><br>
+  <b>Syntax of Declare Cursors : </b> <br>
+   CURSOR name IS <br> 
+    SELECT statement; </p>
+
+
+<p><b1>2. open : </b1>It is used to allocate memory for the cursor and make it easy to fetch the rows returned by the SQL statements into it.   <br><br>
+<b>Syntax of open Cursors : </b> <br>
+    OPEN cursor_name;  </p>
+
+<p><b1>3. fetch : </b1>It is used to access one row at a time. You can fetch rows from the above-opened cursor as follows  <br><br>
+<b>Syntax of fetch the Cursors : </b>  <br>
+  FETCH cursor_name INTO variable_list;   </p>
+
+<p><b1>4. close : </b1>It is used to release the allocated memory. The following syntax is used to close the above-opened cursors. <br><br>
+<b>Syntax of close the Cursors : </b><br>
+  Close cursor_name;  </p><br>
+
+
+<li>Syntax of  Explicit Cursors</li>
+<p>CURSOR cursor_name IS select_statement;</p><br>
+
+<li>Example of  Explicit Cursors</li><br>
+<h2><a href="Images/cursor program1.png"><img src="Images/cursor program1.png"></a></h2><br>
+
+
+<h1>Cursor for loop</h1>
+<p>The cursor FOR LOOP implicitly its loop index as a record of type%ROWTYPE, opens a cursor, repeatedly fetcges rows of the values from the active set into fields in the record, and then close the cursor when all rows have been processed or when the EXIT command is encountered.</p><br>
+
+<li>Example of  Cursor for loop</li><br>
+<h2><a href="Images/for cursor.png"><img src="Images/for cursor.png"></a></h2>  <br><br>
+
+<section>
+    <button><a href="index.html">BACK</a></button>
+    <button><a href="#home">TOP</a></button>
+</section>
+    </div>
+    <hr>
+    <div>
+        
+    <h1 id="pro">Procedure</h1>
+
+    <p>A procedure or stored procedure i a named PL/SQL block that can accept parameters, and be invoked. Generally speaking, a procedure is mainly used to perfrom one or more specific task. A procedure has a header, a declaration section an  executable section, and an optional exception-handling section.<br>
+    A procedure can be complied and stored in the Database as a schema object. procedure promote reusability and maintainability. when validated, they can be used in any number of apllication. if the requriements change, only the procedure needs to be updated.</p>
+    <p> You can create a new procedure with the CREATE PROCEDURE statement, which may decalare a list of parameters and must define the actions to be performed by the standard PL/SQL block. The CREATE clause enables you to create stand-alone procedure, which are stroed in an oracle Database.</p><br>
+
+    <li>Syntax of Create a Procedure</li><br>
+    <p>CREATE [OR REPLACE] PROCEDURE procedure_name <br>
+       [(parameter1 [mode 1] datatype1, <br>
+       parameter2 [mode 2] datatype2, <br>
+       .....)]  IS <br>
+       BEGIN <br>
+       PL/SQL executed statements <br>
+       [Exception <br>
+          Exception handlers] <br>
+        END [procedure_name];
+       </p><br>
+
+
+    <li>Example of Create a Procedure</li><br><br>
+    <a href="Images/create procedure1.png"><img src="Images/create procedure1.png"></a><br><br><br>
+
+    <h1>Calling a Procedure</h1>
+    <p>A procedure is called as a PL/SQL statement. A procedure can be called from any PL/SQL program by giving its names followed by the parameters.</p><br>
+    <a href="Images/calling procedure1.png"><img src="Images/calling procedure1.png"></a><br><br><br>
+
+    <h1>Dropping a Procedure</h1>
+    <p>To drop a procedure, DROP PROCEDURE statement is used. In order to drop a procedure, one must either own the procedure or have DROP ANY PROCEDURE system privilege.</p>
+    
+    <li>Syntax of Drop a Procedure</li>
+    <p>DROP PROCEDURE procedure_name;</p><br>
+
+     <li>Example of Drop a Procedure</li><br><br>
+     <a href="Images/drop preocdure1.png"><img src="Images/drop preocdure1.png"></a><br><br><br><br><br>
+     <section>
+        <button><a href="index.html">BACK</a></button>
+        <button><a href="#home">TOP</a></button>
+    </section>
+    </div>
+    <hr>
+    <div>
+           
+
+    <h1 id="fun">Function</h1>
+
+    <p>The PL/SQL Function is very similar to PL/SQL Procedure. The main difference between procedure and a function is, a function must always return a value, and on the other hand a procedure may or may not return a value. Except this, all the other things of PL/SQL procedure are true for PL/SQL function too.</p>
+
+    <li>Syntax of Create a function</li><br>
+    <p>CREATE [OR REPLACE] FUNCTION function_name <br>
+       [(parameter1 [mode 1] datatype1, <br>
+       parameter2 [mode 2] datatype2, <br>
+       .....)]  
+       RETURN datatype IS <br>
+       BEGIN <br>
+       PL/SQL executed statements <br>
+       [Exception <br>
+          Exception handlers] <br>
+        END [function_name];
+       </p><br>
+
+       <li>Example of Create a function</li><br><br>
+       <a href="Images/function created1.png"><img src="Images/function created1.png"></a><br><br><br>
+
+       <h1>Calling a function</h1>
+    <p>A function may accept one or many parameters, but must return a single value. you invoke function as part of PL/SQL expression, using variable to hold the returned value.</p><br>
+
+    <li>Example of calling a function</li><br><br>
+    <a href="Images/calling function1.png"><img src="Images/calling function1.png"></a><br><br><br>
+
+    <h1>Dropping a function</h1>
+    <p>To drop a function, DROP FUNCTION statement is used. In order to drop a function, One must either own the function or have DROP ANY PROCEDURE system privilege.</p><br>
+
+    <li>Syntax of Drop a function</li>
+    <p>DROP FUNCTION function_name;</p><br>
+
+    <li>Example of Drop a Procedure</li><br><br>
+    <a href="Images/drop function1.png"><img src="Images/drop function1.png"></a><br><br><br><br><br>
+    <section>
+        <button><a href="index.html">BACK</a></button>
+        <button><a href="#home">TOP</a></button>
+    </section>
+    </div>
+    <hr>
+    <div>
+        
+    <h1 id="arg">Argument Modes</h1>
+
+    <p>Argument modes are used to defined the behaviour of formal parameters. There are three argument modes to beused with any subprograms (procedure or function).</p>
+    <p>(i) IN mode <br>
+      (ii) OUT mode <br>
+      (iii) IN OUT mode <br> </p>
+      <h2><a href="Images/modes.png"><img src="Images/modes.png"> </a></h2><br><br>
+
+      <p><b>(i) IN mode :  </b> It is the default argument mode in subprogram. This mode passes a constant value from the calling environment into the subprogram.</p>
+
+      <li>Example of IN mode : PROCEDURE</li>
+      <p>declare <br>
+         z number;<br>
+         procedure Pro(x IN number, y IN number) IS <br>
+         begin <br>
+         Dbms_output.put_line('Its a procedure'); <br>
+         z := x+y; <br>
+         end Pro; <br>
+         begin <br>
+         Pro(25,25); <br>
+         Dbms_output.put_line('The value of z : '||z);  <br>
+         end;<br>
+         </p>
+      <a href="Images/in procedure1.png"><img src="Images/in procedure1.png"></a><br><br><br>
+      
+
+      <li>Example of IN mode : FUNCTION</li>
+       <p>declare <br>
+        c number;  <br>  
+        function fun(a IN number, b IN number) <br>
+        return number IS   <br> 
+        begin   <br>
+        Dbms_output.put_line('Its a function');  <br>   
+        c := a-b;  <br>
+        return (c); <br>
+        end fun; <br>
+        begin   <br>
+        Dbms_output.put_line('The value of c : '||fun(300,200)); <br>
+        end;</p><br>
+      
+      <a href="Images/in function1.png"><img src="Images/in function1.png"></a><br><br><br>
+
+      <p><b>(ii) OUT mode : </b> This mode passes a value from the subprogram (procedure) to the calling environment.</p>
+
+      <li>Example of OUT mode : PROCEDURE</li>
+      <p>declare <br>
+        num number;   <br>   
+        Procedure Pro (x OUT number) IS   <br>    
+        begin  <br>
+        Dbms_output.put_line('Its a Procedure');   <br> 
+        x := 100;<br>
+        end Pro; <br>
+        begin <br>
+        Pro(num); <br>
+        Dbms_output.put_line('The output is : '||num);<br>
+        end;</p> <br>
+
+      <a href="Images/out procedure1.png"><img src="Images/out procedure1.png"></a><br><br><br>
+
+      <li>Example of OUT mode : FUNCTION</li>
+      <p>declare  <br>
+        num number := 10; <br>   
+        function fun(a OUT number) <br>
+        return number IS  <br>    
+        begin  <br>
+        Dbms_output.put_line('Its a function');  <br> 
+        a := num; <br>
+        return(a);  <br>
+        end fun;  <br>
+        begin <br>
+        Dbms_output.put_line('The output is : '||fun(num));<br>
+        end; </p><br>
+  
+      <a href="Images/out function1.png"><img src="Images/out function1.png"></a><br><br><br>
+
+      <p><b>(iii) IN OUT mode : </b> This mode is a mixture of both IN n=and OUT mode. Just like IN mode it passes a value from the calling environment in subprogram and like a OUT mode it possibly pass different value from the subprogram back to the calling environment using the same parameter.</p>
+
+      <li>Example of IN OUT mode : PROCEDURE</li>
+      <p>declare  <br>
+        x number; <br>  
+        procedure Pro(num IN OUT number) IS   <br>   
+        begin  <br>
+        Dbms_output.put_line('Its a Procedure'); <br> 
+        num := num+x; <br>
+        end Pro; <br>
+        begin  <br>
+        x := 50;  <br>   
+        Pro(x);  <br> 
+        Dbms_output.put_line('The output is : '||x); <br>
+        end;</p><br>
+      <a href="Images/in out procedure1.png"><img src="Images/in out procedure1.png"></a><br><br><br>
+
+      <li>Example of IN OUT mode : FUNCTION</li>
+      <p>declare  <br>
+        x number;  <br>  
+        Function fun(num IN OUT number) <br>
+        return number IS  <br>    
+        begin <br>
+        Dbms_output.put_line('Its a function'); <br>  
+        num := x;  <br>
+        return (num);  <br>
+        end fun;  <br>
+        begin  <br>
+        x := 50; <br>       
+        Dbms_output.put_line('The output is : '||fun(x)); <br>
+        end;</p> <br>
+     <a href="Images/in out function1.png"> <img src="Images/in out function1.png"></a><br><br><br><br><br>
+
+     <section>
+        <button><a href="index.html">BACK</a></button>
+        <button><a href="#home">TOP</a></button>
+    </section>
+    </div>
+    <hr>
+    <div>
+        
+    <h1 id="pack">Package</h1>
+    <p>A package is a way of logically storing the subprograms like procedures, functions, exception or cursor into a single common unit. A package can be defined as an oracle object that is compiled and stored in the database.</p>
+
+    <b>Advantages Of Package</b>
+    <p><b1>1.</b1>It gives modularity to our code.  <br>
+       <b1>2.</b1>It helps to design the application easily. <br>
+       <b1>3.</b1> PLSQL Package helps to hide information with the help of public and private items, data types, and subprograms.  <br>
+       <b1>4.</b1>package allows maintaining information over all the transactions without requiring to store it in the database.  <br>
+      <b1>5.</b1> Packages help improve performance of execution.</p>
+      </p>
+    
+    <p><b>To create a package we create two things : </b> <br>
+      (i) Package specification <br>
+       (ii) Package body</p><br>
+    <h2><a href="Images/package.png"><img src="Images/package.png"></a></h2><br><br>
+
+
+    <p><b1> (i) Package specification : </b1>In package specification we can declare the named procedure and named function. Package specification consists of a declaration of all the public variables, cursors, objects, procedures, functions, and exception.The elements which are all declared in the specification can be accessed from outside of the package. Such elements are known as a public element. The package specification is a standalone element that means it can exist alone without package body.</p> 
+    
+    <li>Syntax of Package specification </li>
+    <p> CREATE [OR REPLACE] PACKAGE package_name IS <br>
+        procedure_specification; <br>
+        Function_specification;<br>
+        exception_declaration; <br>
+        END [package_name]; </p> <br>
+
+        <p><b1>(ii) Package body : </b1>It consists of the definition of all the elements that are present in the package specification. It can also have a definition of elements that are not declared in the specification, these elements are called private elements and can be called only from inside the package.</p> 
+        
+        <li>Syntax of Package body </li>
+    <p> CREATE [OR REPLACE] PACKAGE  BODY package_name IS <br>
+        procedure_defination; <br>
+        Function_defination;<br>
+        [EXCEPTION <br>
+        exception_handlers]; <br>
+        END [package_name]; </p> <br>
+
+
+        <li>Example of Package specification </li>
+        <p>create or replace package pack As  <br>
+          procedure p1(x number); <br>
+          function fun(y number) return number; <br>
+          end pack; </p><br>
+          <a href="Images/package created1.png"><img src="Images/package created1.png"></a><br><br><br>
+
+
+          <li>Example of Package body </li>
+          <p>create or replace package body pack As<br><br> 
+            procedure P1(x NUMBER) IS    <br>
+            begin   <br>  
+            dbms_output.put_line('Its a procedure'); <br>
+            Dbms_output.put_line('The procedure output is : '||x); <br> 
+            end P1;  <br>
+             <br>
+            function fun(y number) return number IS  <br>
+            num number := 100; <br>     
+            begin  <br>
+            Dbms_output.put_line('Its a function');  <br>    
+            num := y+num;  <br>
+            return(num);  <br>
+            end fun;  <br>
+             <br>
+            end pack; <br> </p>
+
+           <h3><a href="Images/package body1.png"><img src="Images/package body1.png"></a></h3><br><br>
+
+            <h1>Call a package</h1>
+            <li>Example of call Package</li>
+            <p>begin  <br>
+              pack.p1(40); <br>
+              dbms_output.put_line('The fuction output is : '||pack.fun(100)); <br>
+              end;</p>
+
+              <a href="Images/call package1.png"><img src="Images/call package1.png"></a><br><br><br>
+
+              <h1>Drop a package</h1>
+              <p>drop package pack;</p>
+              <a href="Images/drop package1.png"><img src="Images/drop package1.png"></a><br><br><br><br><br>
+              <section>
+                <button><a href="index.html">BACK</a></button>
+                <button><a href="#home">TOP</a></button>
+            </section>
+    </div>
+</body>
+</html>

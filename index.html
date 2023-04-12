@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vipin</title>
+    <link rel="stylesheet" href="css.css">
+    
+    <style type="text/css">
+        .submenu
+        {
+            width: 90%;
+            color: white;
+            position: absolute;
+            background-color: transparent;
+            display: none;
+            top: 100%;
+            border-radius: 30px;
+        }
+        .menuitems:hover .submenu{
+            display: block;
+            border-radius: 30px;
+        } 
+        .menuitems
+        {
+            float: left;
+            padding: 15px 25px;
+            position: relative;
+            /* border: 2px solid green; */
+            
+        }
+        .submenuitems
+        {
+            padding: 4px;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar background height-nav-resp" name="top">
+        <ul class="nav-list v-class-resp">
+            <li> <a href="#Home">DBMS</a></li>
+            <div class="menuitems">
+                <li><a href="mysql.html">MYSQL
+
+                </a>
+
+            </div>
+            <div class="menuitems">
+            <li> <a href="plsql.html">PLSQL</a>
+        </ul>
+      
+    </nav>
+
+    <section class="background firstSection" id="Home">
+        <div class="box-main">
+            <div class="firstHalf">
+                <p class="paragraph1">Database Management System</p>
+                <p class="paragraph2" >Database management system is a software which is used to manage the database.
+                    DBMS provides an interface to perform various operations like database creation, storing data in it, updating data, creating a table in the database and a lot more.            <div id="Mysql"></div>
+            </div>
+        </div>
+      
+    </section>
+    
+
+    <footer class="background">
+        <p class="text-footer">
+           VIPIN &copy; Copyright 2023  All Rights Reserved.
+        </p>
+    </footer>
+    <script src="responsive_burger.js"></script>
+</body>
+
+</html>
